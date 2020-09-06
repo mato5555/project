@@ -1,0 +1,35 @@
+version: "3.5"
+services: 
+    webserver:
+        build: webserver
+        networks:
+            - dev_network
+        ports:
+            - "7777:80"
+    dbserver:
+        build: dbserver
+        networks:
+            - dev_network
+        ports: 
+            - "3307:3306" 
+        environment: 
+            MYSQL_ROOT_PASSWORD: "yes"
+            MYSQL_USER: "mato"
+            MYSQL_PASSWORD: "mato"
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        build: phpmyadmin 
+        restart: always
+        ports:
+             - "8899:80"
+        environment: 
+            build: phpmyadmin
+            MYSQL_ROOT_PASSWORD: "yes"
+            MYSQL_USER: "mato"
+            MYSQL_PASSWORD: "mato"
+            PMA_HOST: "dbserver"
+        networks:
+             - dev_network
+networks: 
+    dev_network:
+

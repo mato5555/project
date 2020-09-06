@@ -30,6 +30,6 @@ services:
             PMA_HOST: "dbserver"
         networks:
              - dev_network
-networks: 
+networks:  //mhikodjd
     dev_network:
 

@@ -14,8 +14,8 @@ services:
             - "3307:3306" 
         environment: 
             MYSQL_ROOT_PASSWORD: "yes"
-            MYSQL_USER: "mato"
-            MYSQL_PASSWORD: "mato"
+            MYSQL_USER: "root"
+            MYSQL_PASSWORD: "root"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         build: phpmyadmin 
@@ -25,8 +25,8 @@ services:
         environment: 
             build: phpmyadmin
             MYSQL_ROOT_PASSWORD: "yes"
-            MYSQL_USER: "mato"
-            MYSQL_PASSWORD: "mato"
+            MYSQL_USER: "root"
+            MYSQL_PASSWORD: "root"
             PMA_HOST: "dbserver"
         networks:
              - dev_network
